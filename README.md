@@ -2,34 +2,6 @@
 
 Welcome to the **Open Source Web Development Projects** repository! This repository features an array of exciting projects, ranging from beginner-friendly front-end explorations to more advanced applications, making it a perfect destination for developers to hone their skills.
 
----
-
-## Table of Contents
-
-1. [Introduction](#introduction)
-2. [HTML, CSS, JS Projects](#html-css-js-projects)
-    - [Bubble Match Madness 🌈](#bubble-match-madness-)
-    - [FriendSync 💫](#friendsync-)
-    - [IconInteract 🎨](#iconinteract-)
-    - [Whimsical Image Slider 📸](#whimsical-image-slider-)
-    - [Analog Watch ⌚](#analog-watch-)
-    - [Calculator ➕](#calculator-)
-    - [Digital Clock 🕰️](#digital-clock-)
-    - [Number Picker 🎲](#number-picker-)
-    - [Random Quote Generator ✨](#random-quote-generator-)
-    - [Student Grade Tracker 📚](#student-grade-tracker-)
-    - [Currency Converter 💱](#currency-converter-)
-    - [Sudoku Game 🎮](#sudoku-game-)
-    - [Todo List 📝](#todo-list-)
-    - [Dictionary App 📖](#dictionary-app-)
-    - [Image Slider2 📸](#image-slider2-)
-    - [Random Joke Generator 🤣](#random-joke-generator-)
-    - [Sign Up Page ✔](#sign-up-page-)
-    - [Color Picker 🌈](#color-picker-)
-3. [How to Contribute](#how-to-contribute)
-4. [License](#license)
-
----
 
 ## Introduction
 
