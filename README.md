@@ -7,7 +7,6 @@ Welcome to the **Open Source Web Development Projects** repository! This reposit
 
 This repository is designed to provide web developers with fun and practical projects. Each project is crafted with creativity and functionality in mind, making it a great resource for learning and building.
 
----
 
 ## HTML, CSS, JS Projects
 
@@ -65,20 +64,6 @@ An animated and responsive sign-up page with theme toggle, input animations, and
 ### 18. Color Picker 🌈
 A simple and intuitive color picker for selecting colors easily for projects.
 
----
-
-## How to Contribute
-
-We welcome contributions from developers of all levels! Here's how you can contribute:
-
-1. **Fork** the repository.
-2. Clone your forked repo: `git clone https://github.com/your-username/webdev-projects.git`
-3. Create a new branch: `git checkout -b feature-name`
-4. Make your changes and commit: `git commit -m "Add feature description"`
-5. Push to your branch: `git push origin feature-name`
-6. Open a **Pull Request**.
-
----
 
 ## License
 
