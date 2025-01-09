@@ -34,6 +34,7 @@ This repository is crafted for passionate web developers who enjoy building inte
 | **Random Joke Generator 🤣**  | Fetch and display jokes from an API with a user-friendly interface.                                             | HTML, CSS, JavaScript, API                             |  
 | **Sign Up Page ✔**            | Animated, responsive sign-up page with theme toggle and input animations.                                       | HTML, CSS, JavaScript                                  |  
 | **Color Picker 🌈**           | A simple, intuitive color picker for selecting project colors effortlessly.                                      | HTML, CSS, JavaScript                                  |  
+| **Zara Tharapy 🌈**           | Our goal is to create a professional website for Zara Therapy Clinic that showcases our services and attracts new clients.                                       | HTML, CSS, JavaScript                                  |  
 
 ---  
 
@@ -48,43 +49,13 @@ This repository is crafted for passionate web developers who enjoy building inte
 
 ---  
 
-## **How to Contribute** 💡  
-
-1. **Fork the Repository**: Click the fork button at the top of this page.  
-2. **Clone the Repository**: Clone the forked repository to your local machine using:  
-   ```bash  
-   git clone https://github.com/<your-username>/open-source-web-dev-projects.git  
-   ```  
-3. **Create a New Branch**:  
-   ```bash  
-   git checkout -b feature/new-feature  
-   ```  
-4. **Make Your Changes**: Add new features, fix bugs, or improve the existing codebase.  
-5. **Commit Your Changes**:  
-   ```bash  
-   git commit -m "Added new feature"  
-   ```  
-6. **Push the Changes**:  
-   ```bash  
-   git push origin feature/new-feature  
-   ```  
-7. **Submit a Pull Request**: Go to the original repository and create a pull request.  
-
----
 
 ## **Social Media** 🌐  
 
 Follow us for updates, tutorials, and contributions!  
 
-- **GitHub**: [@YourGitHubHandle](https://github.com/YourGitHubHandle)  
-- **LinkedIn**: [@YourLinkedInHandle](https://linkedin.com/in/YourLinkedInHandle)  
-- **Twitter**: [@YourTwitterHandle](https://twitter.com/YourTwitterHandle)  
-
----
-
-## **License** 📜  
-
-This repository is licensed under the **MIT License**. Feel free to use the code in your projects, and don’t forget to ⭐ the repository if you find it helpful!  
+- **GitHub**: [Zahid Rahimoon](https://github.com/zahidrahimoon)  
+- **LinkedIn**: [Zahid Rahimoon](https://linkedin.com/in/zahidrahimoon)    
 
 ---
 
