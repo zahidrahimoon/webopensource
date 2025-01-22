@@ -38,18 +38,6 @@ This repository is crafted for passionate web developers who enjoy building inte
 
 ---  
 
-## **Technologies Used** 🛠️  
-
-| **Technology** | **Proficiency** |  
-|----------------|-----------------|  
-| **HTML**       | ★★★★★ (90%)    |  
-| **CSS**        | ★★★★★ (85%)    |  
-| **JavaScript** | ★★★★★ (80%)    |  
-| **API**        | ★★★★☆ (75%)    |  
-
----  
-
-
 ## **Social Media** 🌐  
 
 Follow us for updates, tutorials, and contributions!  
