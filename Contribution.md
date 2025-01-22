@@ -1,6 +1,3 @@
-Here's a professional `CONTRIBUTION.md` file for your `webopensource` project, including icons and a clear structure:
-
-```markdown
 # 🌟 Contribution Guidelines for WebOpenSource
 
 Thank you for considering contributing to **WebOpenSource**! 🙌  
@@ -105,7 +102,7 @@ By contributing, you agree that your contributions will be licensed under the MI
 ## 💬 Need Help?
 
 If you have any questions, feel free to:  
-- Open a [discussion](https://github.com/username/webopensource/discussions).
+- Open a [discussion](https://github.com/zahidrahimoon/webopensource/discussions).
 - Reach out to the maintainers.  
 
 ---
@@ -113,12 +110,3 @@ If you have any questions, feel free to:
 ### 🏆 We Value Your Contributions!  
 Every pull request, feature suggestion, or bug report makes a difference.  
 Let’s build something amazing together! 🚀  
-```
-
-### Features:
-- **Icons**: Emojis like 🌟, 📜, 🔍, etc., for better readability.
-- **Clear Structure**: Organized sections for quick navigation.
-- **Professional Tone**: Friendly yet professional language.
-- **Developer-Friendly**: Includes guidelines for code formatting and commit messages.
-
-Feel free to modify links or add project-specific details!
