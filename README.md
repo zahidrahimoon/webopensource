@@ -14,6 +14,20 @@ By contributing, you not only improve your own skills but also become a part of 
 
 ---  
 
+
+### Guidelines:
+Note 1: Ensure your project is thoroughly checked and error-free before submission. All projects will undergo a review process, and submissions with errors will be marked as "Invalid".
+Note 2: Don't forget to list your project in the projects.js file located in the root folder of the repository. You may also include a demo link for your project (if available).
+Note 3: Please review the Contribution Guidelines to ensure your submission meets the repository standards.
+
+### Asset Optimization & Image Compression
+
+Utilize tools like TinyPNG, ImageOptim or Squoosh to reduce image sizes before uploading (PNG, JPEG etc). Web image formats opt for modern like WebP to achieve smaller file sizes without sacrificing quality. Avoid excessively high-resolution images for most web projects - a resolution of 72 DPI is adequate for optimal performance. SVGs whenever possible for vector-based graphics as they are lightweight and scale seamlessly without losing quality. Compress files like PDFs and audio using lossless compression tools to minimize their size before adding to the repository.
+
+### Code Performance Optimization
+
+Tools like Webpack or Vite configure to combine and minify JavaScript and CSS files. This helps reduce file sizes and improves page load speed. When working with third-party libraries, import only required components to avoid including unused code. Such as import {Button} from 'library' instead of import * as Library from 'library'. These practices ensure projects remain lightweight, efficient, and ready for deployment while maintaining a good level of complexity and variation in sentence structure.
+
 ## **Projects and Features** 🌟  
 
 ### **HTML, CSS, and JavaScript Projects**  
@@ -41,14 +55,8 @@ By contributing, you not only improve your own skills but also become a part of 
 | **Zara Tharapy 🌈**           | Our goal is to create a professional website for Zara Therapy Clinic that showcases our services and attracts new clients.                                       | HTML, CSS, JavaScript                                  |  
 
 ---  
-### Asset Optimization
 
-## Image Compression: 
-Utilize tools like TinyPNG, ImageOptim or Squoosh to reduce image sizes before uploading (PNG, JPEG etc). Web image formats opt for modern like WebP to achieve smaller file sizes without sacrificing quality. Avoid excessively high-resolution images for most web projects - a resolution of 72 DPI is adequate for optimal performance. SVGs whenever possible for vector-based graphics as they are lightweight and scale seamlessly without losing quality. Compress files like PDFs and audio using lossless compression tools to minimize their size before adding to the repository.
 
-## Code Performance Optimization
-
-Tools like Webpack or Vite configure to combine and minify JavaScript and CSS files. This helps reduce file sizes and improves page load speed. When working with third-party libraries, import only required components to avoid including unused code. Such as import {Button} from 'library' instead of import * as Library from 'library'. These practices ensure projects remain lightweight, efficient, and ready for deployment while maintaining a good level of complexity and variation in sentence structure.
 
 ## **Social Media** 🌐  
 
