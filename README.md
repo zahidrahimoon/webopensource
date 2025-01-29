@@ -70,5 +70,3 @@ Follow us for updates, tutorials, and contributions!
 ### **Let’s Build Together! 🚀**  
 
 Your contributions make this repository more valuable and engaging. Start exploring and coding today!  
-
----  
