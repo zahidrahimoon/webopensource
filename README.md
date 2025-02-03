@@ -1,6 +1,6 @@
 # **Open Source Web Development Projects** 🚀  
 
-Welcome to the **Open Source Web Development Projects** repository! Explore a variety of creative and functional web development projects, ranging from beginner-friendly applications to advanced web solutions. This repository is perfect for developers looking to learn, practice, and contribute to open-source projects.  
+Welcome to the **Open Source Web Development Projects** repository! Explore a variety of creative and functional web development projects, ranging from beginner-friendly applications to advanced web solutions. This repository is perfect for developers looking to learn, practice, and contribute to open-source projects... 
 
 ---
 
