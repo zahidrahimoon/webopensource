@@ -55,9 +55,7 @@ Tools like Webpack or Vite configure to combine and minify JavaScript and CSS fi
 | **Zara Tharapy 🌈**           | Our goal is to create a professional website for Zara Therapy Clinic that showcases our services and attracts new clients.                                       | HTML, CSS, JavaScript                                  |  
 
 ---  
-  
 
----
 
 ### **Let’s Build Together! 🚀**  
 
