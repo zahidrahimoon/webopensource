@@ -2,8 +2,6 @@
 
 Welcome to the **Open Source Web Development Projects** repository! Explore a variety of creative and functional web development projects, ranging from beginner-friendly applications to advanced web solutions. This repository is perfect for developers looking to learn, practice, and contribute to open-source projects.
 
----
-
 ## **Introduction** 🎉  
 
 This repository serves as a collaborative platform for participants passionate about web development who are eager to learn, share, and contribute to open-source projects. It’s a hub for showcasing your creativity, whether you’re a beginner or looking to enhance your skills in web development.
@@ -11,8 +9,6 @@ This repository serves as a collaborative platform for participants passionate a
 From simple calculators and to-do lists to advanced weather apps and portfolio websites, all contributions are welcome here. The primary aim of this repository is to foster a supportive learning environment and encourage collaboration among budding developers.
 
 By contributing, you not only improve your own skills but also become a part of the thriving open-source community. Let’s build, share, and grow together! 
-
----  
 
 
 ### Guidelines:
