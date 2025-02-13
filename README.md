@@ -10,7 +10,6 @@ From simple calculators and to-do lists to advanced weather apps and portfolio w
 
 By contributing, you not only improve your own skills but also become a part of the thriving open-source community. Let’s build, share, and grow together! 
 
-
 ### Guidelines:
 Note 1: Ensure your project is thoroughly checked and error-free before submission. All projects will undergo a review process, and submissions with errors will be marked as "Invalid".
 Note 2: Don't forget to list your project in the projects.js file located in the root folder of the repository. You may also include a demo link for your project (if available).
