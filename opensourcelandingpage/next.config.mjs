@@ -1,6 +1,6 @@
-import type { NextConfig } from "next";
+import { NextConfig } from "next";
 
-const nextConfig: NextConfig = {
+const nextConfig = {
   images: {
     domains: ['res.cloudinary.com' , 'images.unsplash.com', 'images.remotePatterns'],
 
