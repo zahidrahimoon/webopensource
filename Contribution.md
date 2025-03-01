@@ -67,7 +67,7 @@ We’re open to new ideas!
 Follow these steps to add a project details to **WebOpenSource**:
 
 ### 1️⃣ Navigate to the File
-- Navigate to the project file [here]().
+- Navigate to the project file [here](https://github.com/zahidrahimoon/webopensource/blob/master/opensourcelandingpage/data/projects.ts).
 
 ### 2️⃣ Add Project Details
 - Copy an existing project detail block.
