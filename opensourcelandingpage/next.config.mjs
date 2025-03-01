@@ -1,10 +1,3 @@
-let userConfig;
-try {
-  userConfig = await import('./v0-user-next.config').then(m => m.default);
-} catch (e) {
-  userConfig = {};
-}
-
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   eslint: {
@@ -18,12 +11,11 @@ const nextConfig = {
     domains: ['res.cloudinary.com'],
   },
   experimental: {
-    appDir: true, // ✅ Ensure App Router is enabled
+    appDir: true,
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
 };
 
-// ✅ Properly merging userConfig
-export default { ...nextConfig, ...userConfig };
+export default { ...nextConfig};
