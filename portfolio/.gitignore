@@ -1,0 +1,36 @@
+# Node Modules
+node_modules/
+admin-backend/node_modules/
+frontend/node_modules/
+
+# Environment Files
+.env
+.env.development
+.env.production
+# If there are any other env files, you can ignore them with:
+.env.*
+
+# Build outputs (if applicable)
+dist/
+build/
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Extra Things
+extra-things/
+
+# Optional: Editor and IDE settings
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
