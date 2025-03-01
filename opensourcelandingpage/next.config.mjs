@@ -1,8 +1,8 @@
-let userConfig = undefined
+let userConfig;
 try {
-  userConfig = await import('./v0-user-next.config')
+  userConfig = await import('./v0-user-next.config').then(m => m.default);
 } catch (e) {
-  // ignore error
+  userConfig = {};
 }
 
 /** @type {import('next').NextConfig} */
@@ -18,32 +18,12 @@ const nextConfig = {
     domains: ['res.cloudinary.com'],
   },
   experimental: {
+    appDir: true, // ✅ Ensure App Router is enabled
     webpackBuildWorker: true,
     parallelServerBuildTraces: true,
     parallelServerCompiles: true,
   },
-}
+};
 
-mergeConfig(nextConfig, userConfig)
-
-function mergeConfig(nextConfig, userConfig) {
-  if (!userConfig) {
-    return
-  }
-
-  for (const key in userConfig) {
-    if (
-      typeof nextConfig[key] === 'object' &&
-      !Array.isArray(nextConfig[key])
-    ) {
-      nextConfig[key] = {
-        ...nextConfig[key],
-        ...userConfig[key],
-      }
-    } else {
-      nextConfig[key] = userConfig[key]
-    }
-  }
-}
-
-export default nextConfig
+// ✅ Properly merging userConfig
+export default { ...nextConfig, ...userConfig };
