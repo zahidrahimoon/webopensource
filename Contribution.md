@@ -3,20 +3,6 @@
 Thank you for considering contributing to **WebOpenSource**! 🙌  
 We’re excited to have you on board and appreciate your efforts to improve the project.  
 
----
-
-## 📌 Table of Contents
-1. [How to Contribute](#-how-to-contribute)
-   - [Reporting Issues](#-reporting-issues)
-   - [Suggesting Features](#-suggesting-features)
-   - [Submitting Pull Requests](#-submitting-pull-requests)
-2. [Development Guidelines](#-development-guidelines)
-3. [Adding a Project](#-adding-a-project)
-4. [License](#-license)
-
-
----
-
 ## 🤝 How to Contribute
 
 ### 🔍 Reporting Issues
