@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mathematical Expression Checker using PDA</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Playfair', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            backdrop-filter: blur(10px);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+        
+        .header p {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+        
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            padding: 30px;
+        }
+        
+        .input-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .input-section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5em;
+        }
+        
+        .input-group {
+            margin-bottom: 20px;
+        }
+        
+        .pda-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px;
+        }
+        
+        .guide-btn {
+            padding: 8px 16px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s ease;
+        }
+        
+        .guide-btn:hover {
+            background-color: #0056b3;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #dee2e6;
+            border-radius: 10px;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            font-family: 'Courier New', monospace;
+        }
+        
+        input[type="text"]:focus {
+            outline: none;
+            border-color: #667eea;
+            box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+        }
+        
+        .btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 1.1em;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+        }
+        
+        .examples {
+            background: #e8f4fd;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 20px 0;
+        }
+        
+        .examples h3 {
+            color: #0066cc;
+            margin-bottom: 10px;
+        }
+        
+        .example-item {
+            background: white;
+            padding: 8px 12px;
+            margin: 5px 0;
+            border-radius: 5px;
+            font-family: 'Courier New', monospace;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+        
+        .example-item:hover {
+            background: #f0f8ff;
+        }
+        
+        .output-section {
+            background: #f8f9fa;
+            border-radius: 15px;
+            padding: 25px;
+            border: 2px solid #e9ecef;
+        }
+        
+        .result {
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            font-weight: 600;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        
+        .result.valid {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+        }
+        
+        .result.invalid {
+            background: linear-gradient(135deg, #dc3545, #fd7e14);
+            color: white;
+        }
+        
+        .transitions {
+            background: white;
+            border-radius: 10px;
+            padding: 20px;
+            max-height: 400px;
+            overflow-y: auto;
+            border: 2px solid #e9ecef;
+        }
+        
+        .transitions h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #e9ecef;
+            padding-bottom: 10px;
+        }
+        
+        .transition-step {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px;
+            margin: 8px 0;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .step-info {
+            display: flex;
+            gap: 20px;
+            flex: 1;
+        }
+        
+        .step-number {
+            background: #667eea;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        
+        .state,
+        .input,
+        .stack {
+            font-family: 'Courier New', monospace;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.95em;
+        }
+        
+        .state {
+            background: #e3f2fd;
+            color: #1976d2;
+        }
+        
+        .input {
+            background: #fff3e0;
+            color: #f57c00;
+        }
+        
+        .stack {
+            background: #f3e5f5;
+            color: #7b1fa2;
+        }
+        
+        .pda-info {
+            grid-column: 1 / -1;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+        }
+        
+        .pda-info h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+        }
+        
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .info-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid #667eea;
+        }
+        
+        .info-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+        
+        .info-card ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .info-card li {
+            padding: 5px 0;
+            font-family: 'Courier New', monospace;
+            color: #495057;
+        }
+        
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .header h1 {
+                font-size: 2em;
+            }
+            .container {
+                margin: 10px;
+            }
+        }
+        
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Mathematical Expression Checker</h1>
+            <p>Pushdown Automaton (PDA) Based Validator</p>
+        </div>
+
+        <div class="main-content">
+            <div class="input-section">
+                <h2>Expression Input</h2>
+                <div class="input-group">
+                    <label for="expression">Enter Mathematical Expression:</label>
+                    <input type="text" id="expression" placeholder="e.g., (1+2)*3" autocomplete="off">
+                </div>
+                <button class="btn" onclick="validateExpression()">Validate Expression</button>
+
+                <div class="examples">
+                    <h3>Example Expressions:</h3>
+                    <div class="example-item" onclick="setExpression('1+2*3')">1+2*3</div>
+                    <div class="example-item" onclick="setExpression('(1+2)*3')">(1+2)*3</div>
+                    <div class="example-item" onclick="setExpression('((4/2)+3)*2')">((4/2)+3)*2</div>
+                    <div class="example-item" onclick="setExpression('1+(2*3)/4')">1+(2*3)/4</div>
+                    <div class="example-item" onclick="setExpression('(1+2')">(1+2 <span style="color: red;">[Invalid]</span></div>
+                    <div class="example-item" onclick="setExpression('1++2')">1++2 <span style="color: red;">[Invalid]</span></div>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <h2>Validation Result</h2>
+                <div id="result" class="result" style="display: none;"></div>
+
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p>Processing expression...</p>
+                </div>
+
+                <div class="transitions" id="transitions" style="display: none;">
+                    <h3>PDA Transition Log</h3>
+                    <div id="transition-steps"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pda-info">
+            <div class="pda-header">
+                <h2>PDA Information</h2>
+                <button class="guide-btn"><a href="./pda-guide.html">Complete Guide</a></button>
+            </div>
+
+            <div class="info-grid">
+                <div class="info-card">
+                    <h3>States</h3>
+                    <ul>
+                        <li>q0: Start state</li>
+                        <li>q1: Reading digits/operators</li>
+                        <li>q2: Accept state</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Input Alphabet</h3>
+                    <ul>
+                        <li>Digits: 0-9</li>
+                        <li>Operators: +, -, *, /</li>
+                        <li>Parentheses: (, )</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Stack Operations</h3>
+                    <ul>
+                        <li>Push ' ( ' when encountered</li>
+                        <li>Pop '( ' when ') ' is found</li>
+                        <li>Stack must be empty at end</li>
+                    </ul>
+                </div>
+                <div class="info-card">
+                    <h3>Validation Rules</h3>
+                    <ul>
+                        <li>Balanced parentheses</li>
+                        <li>Valid operator placement</li>
+                        <li>Proper digit sequences</li>
+                        <li>No consecutive operators</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        class PDA {
+            constructor() {
+                this.states = ['q0 ', 'q1 ', 'q2 '];
+                this.startState = 'q0 ';
+                this.acceptStates = ['q2 '];
+                this.currentState = this.startState;
+                this.stack = ['$ ']; // Bottom of stack marker
+                this.transitions = [];
+                this.stepCount = 0;
+            }
+
+            reset() {
+                this.currentState = this.startState;
+                this.stack = ['$ '];
+                this.transitions = [];
+                this.stepCount = 0;
+            }
+
+            addTransition(input, stackTop, newState, stackOp) {
+                this.stepCount++;
+                this.transitions.push({
+                    step: this.stepCount,
+                    state: this.currentState,
+                    input: input || 'ε ',
+                    stackBefore: [...this.stack],
+                    stackAfter: [...this.stack],
+                    newState: newState,
+                    operation: stackOp
+                });
+                this.currentState = newState;
+            }
+
+            isDigit(char) {
+                return char >= '0 ' && char <= '9 ';
+            }
+
+            isOperator(char) {
+                return ['+ ', '- ', '* ', '/ '].includes(char);
+            }
+
+            validate(expression) {
+                this.reset();
+
+                if (!expression || expression.trim() === ' ') {
+                    return {
+                        valid: false,
+                        error: 'Empty expression '
+                    };
+                }
+
+                expression = expression.replace(/\s/g, ' '); // Remove spaces
+
+                // Initial transition to q1
+                this.addTransition('start ', '$ ', 'q1 ', 'none ');
+
+                let expectingOperand = true; // Start expecting a number or opening parenthesis
+
+                for (let i = 0; i < expression.length; i++) {
+                    const char = expression[i];
+
+                    if (this.isDigit(char)) {
+                        if (!expectingOperand) {
+                            return {
+                                valid: false,
+                                error: `Unexpected digit '${char} ' at position ${i + 1}`,
+                                transitions: this.transitions
+                            };
+                        }
+
+                        // Read the complete number
+                        let number = char;
+                        while (i + 1 < expression.length && this.isDigit(expression[i + 1])) {
+                            i++;
+                            number += expression[i];
+                        }
+
+                        this.addTransition(number, this.stack[this.stack.length - 1], 'q1 ', 'none ');
+                        expectingOperand = false;
+                    } else if (char === '( ') {
+                        if (!expectingOperand) {
+                            return {
+                                valid: false,
+                                error: `Unexpected '( ' at position ${i + 1}`,
+                                transitions: this.transitions
+                            };
+                        }
+
+                        this.stack.push('( ');
+                        this.addTransition('( ', this.stack[this.stack.length - 2], 'q1 ', 'push ( ');
+                        expectingOperand = true;
+                    } else if (char === ') ') {
+                        if (expectingOperand) {
+                            return {
+                                valid: false,
+                                error: `Unexpected ') ' at position ${i + 1}`,
+                                transitions: this.transitions
+                            };
+                        }
+
+                        if (this.stack.length <= 1 || this.stack[this.stack.length - 1] !== '( ') {
+                            return {
+                                valid: false,
+                                error: `Unmatched ') ' at position ${i + 1}`,
+                                transitions: this.transitions
+                            };
+                        }
+
+                        this.stack.pop();
+                        this.addTransition(') ', '( ', 'q1 ', 'pop ( ');
+                        expectingOperand = false;
+                    } else if (this.isOperator(char)) {
+                        if (expectingOperand) {
+                            return {
+                                valid: false,
+                                error: `Unexpected operator '${char} ' at position ${i + 1}`,
+                                transitions: this.transitions
+                            };
+                        }
+
+                        this.addTransition(char, this.stack[this.stack.length - 1], 'q1 ', 'none ');
+                        expectingOperand = true;
+                    } else {
+                        return {
+                            valid: false,
+                            error: `Invalid character '${char} ' at position ${i + 1}`,
+                            transitions: this.transitions
+                        };
+                    }
+                }
+
+                // Check final state
+                if (expectingOperand) {
+                    return {
+                        valid: false,
+                        error: 'Expression ends with operator or is incomplete ',
+                        transitions: this.transitions
+                    };
+                }
+
+                if (this.stack.length > 1) {
+                    return {
+                        valid: false,
+                        error: 'Unmatched opening parentheses ',
+                        transitions: this.transitions
+                    };
+                }
+
+                // Final transition to accept state
+                this.addTransition('end ', '$ ', 'q2 ', 'accept ');
+
+                return {
+                    valid: true,
+                    message: 'Expression is syntactically valid ',
+                    transitions: this.transitions
+                };
+            }
+        }
+
+        const pda = new PDA();
+
+        function setExpression(expr) {
+            document.getElementById('expression ').value = expr;
+        }
+
+        function validateExpression() {
+            const expression = document.getElementById('expression ').value;
+            const resultDiv = document.getElementById('result ');
+            const transitionsDiv = document.getElementById('transitions ');
+            const transitionStepsDiv = document.getElementById('transition-steps ');
+            const loadingDiv = document.getElementById('loading ');
+
+            // Show loading
+            loadingDiv.style.display = 'block ';
+            resultDiv.style.display = 'none ';
+            transitionsDiv.style.display = 'none ';
+
+            // Simulate processing time for better UX
+            setTimeout(() => {
+                const result = pda.validate(expression);
+
+                // Hide loading
+                loadingDiv.style.display = 'none ';
+
+                // Show result
+                resultDiv.style.display = 'block ';
+                resultDiv.className = `result ${result.valid ? 'valid ' : 'invalid '}`;
+                resultDiv.textContent = result.valid ?
+                    '✓ ' + result.message :
+                    '✗ ' + result.error;
+
+                // Show transitions
+                transitionsDiv.style.display = 'block ';
+                transitionStepsDiv.innerHTML = ' ';
+
+                result.transitions.forEach((transition, index) => {
+                    const stepDiv = document.createElement('div ');
+                    stepDiv.className = 'transition-step ';
+
+                    const stackBefore = transition.stackBefore.slice().reverse().join(' ');
+                    const stackAfter = transition.stackAfter.slice().reverse().join(' ');
+
+                    stepDiv.innerHTML = `
+                <div class="step-number">${transition.step}</div>
+                <div class="step-info">
+                    <div class="state">State: ${transition.state} → ${transition.newState}</div>
+                    <div class="input">Input: ${transition.input}</div>
+                    <div class="stack">Stack: ${stackBefore} → ${stackAfter}</div>
+                </div>
+            `;
+
+                    transitionStepsDiv.appendChild(stepDiv);
+                });
+            }, 500);
+        }
+
+        // Allow Enter key to validate
+        document.getElementById('expression ').addEventListener('keypress ', function(e) {
+            if (e.key === 'Enter ') {
+                validateExpression();
+            }
+        });
+
+        // Focus on input when page loads
+        document.addEventListener('DOMContentLoaded ', function() {
+            document.getElementById('expression ').focus();
+        });
+    </script>
+</body>
+
+</html>
